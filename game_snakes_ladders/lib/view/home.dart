@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:game_snakes_ladders/view/image-item.dart';
+import 'package:game_snakes_ladders/widgets/image-item.dart';
+import 'package:game_snakes_ladders/widgets/play-dices.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
@@ -78,64 +79,7 @@ class _HomeState extends State<Home> {
                       }),
                 ),
                 ImageItem(),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          width: 100,
-                          height: 20,
-                          child: Center(
-                              child: Text(
-                            'Dado 1',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          )),
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.orange[300]),
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                BoxShadow(color: Colors.orange[100])
-                              ]),
-                        ),
-                        Container(
-                          width: 100,
-                          height: 20,
-                          child: Center(
-                              child: Text(
-                            'Dado 2',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          )),
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.orange[300]),
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                BoxShadow(color: Colors.orange[100])
-                              ]),
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Image.asset(
-                            'assets/dice/dice_one.png',
-                            height: 100,
-                            width: 100,
-                          ),
-                          Image.asset(
-                            'assets/dice/dice_one.png',
-                            height: 100,
-                            width: 100,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                )
+                PlayDices()
               ]),
             ),
           )),
