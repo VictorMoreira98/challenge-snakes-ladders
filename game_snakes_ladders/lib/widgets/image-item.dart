@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_snakes_ladders/consts/snakes_ladders.dart';
 
 class ImageItem extends StatelessWidget {
   const ImageItem({Key key}) : super(key: key);
@@ -11,7 +12,7 @@ class ImageItem extends StatelessWidget {
           top: -30,
           left: 110,
           child: Image.asset(
-            'assets/snake.png',
+            SnakesLaddersConst.snake,
             height: 300,
             width: 100,
           ),
@@ -20,7 +21,7 @@ class ImageItem extends StatelessWidget {
           bottom: 175,
           left: 190,
           child: Image.asset(
-            'assets/snake.png',
+            SnakesLaddersConst.snake,
             height: 300,
             width: 100,
           ),
@@ -29,7 +30,7 @@ class ImageItem extends StatelessWidget {
           top: 90,
           left: 150,
           child: Image.asset(
-            'assets/snake_two.png',
+            SnakesLaddersConst.snake_two,
             height: 300,
             width: 100,
           ),
@@ -38,7 +39,7 @@ class ImageItem extends StatelessWidget {
           top: 170,
           left: 20,
           child: Image.asset(
-            'assets/ladder.png',
+            SnakesLaddersConst.ladders,
             height: 300,
             width: 100,
           ),
@@ -49,7 +50,7 @@ class ImageItem extends StatelessWidget {
           child: RotationTransition(
             turns: AlwaysStoppedAnimation(150 / 360),
             child: Image.asset(
-              'assets/ladder.png',
+              SnakesLaddersConst.ladders,
               height: 300,
               width: 100,
             ),
@@ -61,7 +62,7 @@ class ImageItem extends StatelessWidget {
           child: RotationTransition(
             turns: AlwaysStoppedAnimation(270 / 360),
             child: Image.asset(
-              'assets/ladder.png',
+             SnakesLaddersConst.ladders,
               height: 300,
               width: 100,
             ),

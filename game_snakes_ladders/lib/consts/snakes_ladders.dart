@@ -1,5 +1,5 @@
 class SnakesLaddersConst {
-  static String snake = '';
-  static String snake_two = '';
-  static String ladders = '';
+  static String snake = 'assets/snake.png';
+  static String snake_two = 'assets/snake_two.png';
+  static String ladders = 'assets/ladder.png';
 }
