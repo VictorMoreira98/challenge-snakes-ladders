@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:game_snakes_ladders/view/home.dart';
-import 'package:game_snakes_ladders/view/image-item.dart';
+import 'package:game_snakes_ladders/widgets/image-item.dart';
 
 void main() {
   runApp(MyApp());
