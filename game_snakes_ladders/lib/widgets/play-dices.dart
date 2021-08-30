@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:game_snakes_ladders/consts/dices.dart';
 import 'package:game_snakes_ladders/stores/snakes-ladders.dart';
 import 'package:game_snakes_ladders/widgets/dice-item.dart';
@@ -8,7 +9,10 @@ import 'package:spring/spring.dart';
 
 class PlayDices extends StatelessWidget {
   const PlayDices(
-      {Key key, this.snakeLaddersStore, this.dicesOne, this.dicesTwo})
+      {Key key,
+      this.snakeLaddersStore,
+      this.dicesOne,
+      this.dicesTwo})
       : super(key: key);
   final SnakesLadders snakeLaddersStore;
   final int dicesOne;
@@ -23,9 +27,15 @@ class PlayDices extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          DiceItem(
-            dice: DicesConst.dice(dicesOne.toString(),),
-            springController: SpringController(initialAnim: Motion.mirror),
+          Observer(
+            builder: (BuildContext context) {
+              return DiceItem(
+                dice: DicesConst.dice(
+                  dicesOne.toString(),
+                ),
+                springController: SpringController(initialAnim: Motion.play),
+              );
+            },
           ),
           ElevatedButton(
             onPressed: () {
@@ -39,9 +49,11 @@ class PlayDices extends StatelessWidget {
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.orange)),
           ),
-         DiceItem(
-            dice: DicesConst.dice(dicesTwo.toString(),),
-            springController: SpringController(initialAnim: Motion.mirror),
+          DiceItem(
+            dice: DicesConst.dice(
+              dicesTwo.toString(),
+            ),
+            springController: SpringController(initialAnim: Motion.play),
           ),
         ],
       ),

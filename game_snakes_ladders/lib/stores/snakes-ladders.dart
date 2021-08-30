@@ -1,4 +1,6 @@
 import 'package:mobx/mobx.dart';
+import 'package:spring/spring.dart';
+import 'dart:async';
 part 'snakes-ladders.g.dart';
 
 class SnakesLadders = _SnakesLaddersBase with _$SnakesLadders;
@@ -13,12 +15,15 @@ abstract class _SnakesLaddersBase with Store {
   @observable
   int _currentDiceTwo = 2;
 
+  @observable
+  Motion _statusDice = Motion.pause;
+
   @computed
   int get currentPlayer => _currentPlayer;
 
   @computed
   int get currentDiceOne => _currentDiceOne;
-  
+
   @computed
   int get currentDiceTwo => _currentDiceTwo;
 

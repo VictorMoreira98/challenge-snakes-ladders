@@ -78,6 +78,21 @@ mixin _$SnakesLadders on _SnakesLaddersBase, Store {
     });
   }
 
+  final _$_statusDiceAtom = Atom(name: '_SnakesLaddersBase._statusDice');
+
+  @override
+  Motion get _statusDice {
+    _$_statusDiceAtom.reportRead();
+    return super._statusDice;
+  }
+
+  @override
+  set _statusDice(Motion value) {
+    _$_statusDiceAtom.reportWrite(value, super._statusDice, () {
+      super._statusDice = value;
+    });
+  }
+
   final _$_SnakesLaddersBaseActionController =
       ActionController(name: '_SnakesLaddersBase');
 

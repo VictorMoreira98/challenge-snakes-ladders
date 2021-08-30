@@ -3,6 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:game_snakes_ladders/stores/snakes-ladders.dart';
 import 'package:game_snakes_ladders/view/footer.dart';
+import 'package:game_snakes_ladders/widgets/avatar-player.dart';
 import 'package:game_snakes_ladders/widgets/image-item.dart';
 import 'package:game_snakes_ladders/widgets/play-dices.dart';
 import 'package:game_snakes_ladders/widgets/player.dart';
@@ -68,18 +69,29 @@ class _HomeState extends State<Home> {
                             child: AnimationConfiguration.staggeredGrid(
                               position: index,
                               duration: const Duration(milliseconds: 375),
-                              columnCount: 2,
+                              columnCount: 1,
                               child: ScaleAnimation(
-                                child: Container(
-                                  width: 100,
-                                  height: 100,
-                                  decoration: BoxDecoration(color: color),
-                                  child: Center(
-                                      child: Text(
-                                    (100 - index).toString(),
-                                    style: TextStyle(color: Colors.white),
-                                  )),
-                                ),
+                                child: Stack(children: [
+                                  Container(
+                                      width: 100,
+                                      height: 100,
+                                      decoration: BoxDecoration(color: color),
+                                      child: Center(
+                                        child: Text(
+                                          (100 - index).toString(),
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ),
+                                    ),
+                                    AvatarPlayer(
+                                      color: Colors.red,
+                                      size: 3.0,
+                                    ),
+                                    AvatarPlayer(
+                                      color: Colors.blue,
+                                      size: 8,
+                                    )
+                                ],),
                               ),
                             ),
                           );
