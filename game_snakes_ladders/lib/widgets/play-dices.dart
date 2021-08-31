@@ -9,10 +9,7 @@ import 'package:spring/spring.dart';
 
 class PlayDices extends StatelessWidget {
   const PlayDices(
-      {Key key,
-      this.snakeLaddersStore,
-      this.dicesOne,
-      this.dicesTwo})
+      {Key key, this.snakeLaddersStore, this.dicesOne, this.dicesTwo})
       : super(key: key);
   final SnakesLadders snakeLaddersStore;
   final int dicesOne;
@@ -27,23 +24,17 @@ class PlayDices extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Observer(
-            builder: (BuildContext context) {
-              return DiceItem(
-                dice: DicesConst.dice(
-                  dicesOne.toString(),
-                ),
-                springController: SpringController(initialAnim: Motion.play),
-              );
-            },
+          DiceItem(
+            dice: DicesConst.dice(
+              dicesOne.toString(),
+            ),
+            springController: SpringController(initialAnim: Motion.play),
           ),
           ElevatedButton(
             onPressed: () {
               var diceOne = 1 + random.nextInt(5);
               var diceTwo = 1 + random.nextInt(5);
-              snakeLaddersStore.play(diceOne, diceTwo);
-              print(snakeLaddersStore.currentDiceOne);
-              print(snakeLaddersStore.currentDiceTwo);
+              snakeLaddersStore.play(diceOne, diceTwo, context);
             },
             child: Text('Jogar'),
             style: ButtonStyle(

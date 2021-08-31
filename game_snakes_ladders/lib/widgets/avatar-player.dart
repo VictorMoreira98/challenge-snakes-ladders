@@ -10,10 +10,10 @@ class AvatarPlayer extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(size),
       child: Container(
-        // height: 0.1,
-        // width: 0.1,
+        height: 50,
+        width: 50,
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(100),
-        color: color.withOpacity(.4)),
+        color: color.withOpacity(.6)),
       ),
     );
   }

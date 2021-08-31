@@ -27,7 +27,7 @@ class ImageItem extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 90,
+          top: 85,
           left: 150,
           child: Image.asset(
             SnakesLaddersConst.snake_two,
@@ -45,10 +45,10 @@ class ImageItem extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 10,
-          right: 50,
+          top: 0,
+          right: 45,
           child: RotationTransition(
-            turns: AlwaysStoppedAnimation(150 / 360),
+            turns: AlwaysStoppedAnimation(165 / 360),
             child: Image.asset(
               SnakesLaddersConst.ladders,
               height: 300,
@@ -58,7 +58,7 @@ class ImageItem extends StatelessWidget {
         ),
         Positioned(
           top: -118,
-          right: 150,
+          right: 160,
           child: RotationTransition(
             turns: AlwaysStoppedAnimation(270 / 360),
             child: Image.asset(

@@ -9,6 +9,20 @@ part of 'snakes-ladders.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$SnakesLadders on _SnakesLaddersBase, Store {
+  Computed<int> _$totalPlayerOneComputed;
+
+  @override
+  int get totalPlayerOne =>
+      (_$totalPlayerOneComputed ??= Computed<int>(() => super.totalPlayerOne,
+              name: '_SnakesLaddersBase.totalPlayerOne'))
+          .value;
+  Computed<int> _$totalPlayerTwoComputed;
+
+  @override
+  int get totalPlayerTwo =>
+      (_$totalPlayerTwoComputed ??= Computed<int>(() => super.totalPlayerTwo,
+              name: '_SnakesLaddersBase.totalPlayerTwo'))
+          .value;
   Computed<int> _$currentPlayerComputed;
 
   @override
@@ -78,18 +92,35 @@ mixin _$SnakesLadders on _SnakesLaddersBase, Store {
     });
   }
 
-  final _$_statusDiceAtom = Atom(name: '_SnakesLaddersBase._statusDice');
+  final _$_totalPlayerTwoAtom =
+      Atom(name: '_SnakesLaddersBase._totalPlayerTwo');
 
   @override
-  Motion get _statusDice {
-    _$_statusDiceAtom.reportRead();
-    return super._statusDice;
+  int get _totalPlayerTwo {
+    _$_totalPlayerTwoAtom.reportRead();
+    return super._totalPlayerTwo;
   }
 
   @override
-  set _statusDice(Motion value) {
-    _$_statusDiceAtom.reportWrite(value, super._statusDice, () {
-      super._statusDice = value;
+  set _totalPlayerTwo(int value) {
+    _$_totalPlayerTwoAtom.reportWrite(value, super._totalPlayerTwo, () {
+      super._totalPlayerTwo = value;
+    });
+  }
+
+  final _$_totalPlayerOneAtom =
+      Atom(name: '_SnakesLaddersBase._totalPlayerOne');
+
+  @override
+  int get _totalPlayerOne {
+    _$_totalPlayerOneAtom.reportRead();
+    return super._totalPlayerOne;
+  }
+
+  @override
+  set _totalPlayerOne(int value) {
+    _$_totalPlayerOneAtom.reportWrite(value, super._totalPlayerOne, () {
+      super._totalPlayerOne = value;
     });
   }
 
@@ -97,11 +128,11 @@ mixin _$SnakesLadders on _SnakesLaddersBase, Store {
       ActionController(name: '_SnakesLaddersBase');
 
   @override
-  dynamic play(dynamic diceOne, dynamic diceTwo) {
+  dynamic play(dynamic diceOne, dynamic diceTwo, dynamic context) {
     final _$actionInfo = _$_SnakesLaddersBaseActionController.startAction(
         name: '_SnakesLaddersBase.play');
     try {
-      return super.play(diceOne, diceTwo);
+      return super.play(diceOne, diceTwo, context);
     } finally {
       _$_SnakesLaddersBaseActionController.endAction(_$actionInfo);
     }
@@ -110,6 +141,8 @@ mixin _$SnakesLadders on _SnakesLaddersBase, Store {
   @override
   String toString() {
     return '''
+totalPlayerOne: ${totalPlayerOne},
+totalPlayerTwo: ${totalPlayerTwo},
 currentPlayer: ${currentPlayer},
 currentDiceOne: ${currentDiceOne},
 currentDiceTwo: ${currentDiceTwo}
