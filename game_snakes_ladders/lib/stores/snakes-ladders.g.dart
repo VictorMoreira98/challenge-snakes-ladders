@@ -150,11 +150,11 @@ mixin _$SnakesLadders on _SnakesLaddersBase, Store {
   }
 
   @override
-  dynamic setPlayers(dynamic value) {
+  dynamic setPlayers(dynamic player, dynamic value) {
     final _$actionInfo = _$_SnakesLaddersBaseActionController.startAction(
         name: '_SnakesLaddersBase.setPlayers');
     try {
-      return super.setPlayers(value);
+      return super.setPlayers(player, value);
     } finally {
       _$_SnakesLaddersBaseActionController.endAction(_$actionInfo);
     }

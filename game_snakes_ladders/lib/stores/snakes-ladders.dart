@@ -75,7 +75,7 @@ abstract class _SnakesLaddersBase with Store {
   }
 
   @action
-  setPlayers(value) {
-    _currentPlayer == 1 ? _totalPlayerOne = value : _totalPlayerTwo = value;
+  setPlayers(player, value) {
+    player == 1 ? _totalPlayerOne = value : _totalPlayerTwo = value;
   }
 }

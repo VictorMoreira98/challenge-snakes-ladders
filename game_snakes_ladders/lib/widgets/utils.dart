@@ -121,7 +121,7 @@ class Utils {
               TextButton(
                   onPressed: () => {
                         Navigator.of(context).pop(),
-                        this.snakesLaddersStore.setPlayers(element.first['positionFuture'])
+                        this.snakesLaddersStore.setPlayers(currentPlayer, element.first['positionFuture'])
                       },
                   child: Text(
                     "Ok",
