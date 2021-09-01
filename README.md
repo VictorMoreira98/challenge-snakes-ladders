@@ -11,7 +11,6 @@ O jogo consta em que dois participantes tem o objetivo de chegar a casa número 
 * Permita instalar o app em seu smartphone/emulador
 
 ## Imagens do jogo  
-<img src="./assets/prints_screens/img1.jpeg" width="230"><img src="./assets/prints_screens/img2.jpeg" width="230">
-<img src="./assets/prints_screens/img3.jpeg" width="230">
-<img src="./assets/prints_screens/img4.jpeg" width="230">
-
+<img src="./game_snakes_ladders/assets/prints_screens/img1.jpeg" width="230"><img src="./game_snakes_ladders/assets/prints_screens/img2.jpeg" width="230">
+<img src="./game_snakes_ladders/assets/prints_screens/img3.jpeg" width="230">
+<img src="./game_snakes_ladders/assets/prints_screens/img4.jpeg" width="230">
