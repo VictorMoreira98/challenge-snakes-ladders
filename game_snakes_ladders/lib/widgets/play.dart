@@ -17,12 +17,12 @@ class Play extends StatelessWidget {
       children: [
         if (totalPlayerOne == (100 - index))
           AvatarPlayer(
-            color: Colors.red,
+            player: 1,
             size: totalPlayerOne == totalPlayerTwo ? 8 : 3,
           ),
         if (totalPlayerTwo == (100 - index))
           AvatarPlayer(
-            color: Colors.blue,
+            player: 2,
             size: 3,
           )
       ],

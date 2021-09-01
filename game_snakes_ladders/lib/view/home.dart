@@ -1,3 +1,4 @@
+import 'package:demoji/demoji.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -84,7 +85,10 @@ class _HomeState extends State<Home> {
                                               decoration:
                                                   BoxDecoration(color: color),
                                               child: Center(
-                                                child: Text(
+                                                child: 
+                                                (100 - index) == 100 
+                                                ? Text(Demoji.house, style: TextStyle(fontSize: 30),)
+                                                : Text(
                                                   (100 - index).toString(),
                                                   style: TextStyle(
                                                       color: Colors.white),

@@ -5,6 +5,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:game_snakes_ladders/consts/dices.dart';
 import 'package:game_snakes_ladders/stores/snakes-ladders.dart';
 import 'package:game_snakes_ladders/widgets/dice-item.dart';
+import 'package:game_snakes_ladders/widgets/utils.dart';
 import 'package:spring/spring.dart';
 
 class PlayDices extends StatelessWidget {
@@ -32,9 +33,14 @@ class PlayDices extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              var diceOne = 1 + random.nextInt(5);
-              var diceTwo = 1 + random.nextInt(5);
-              snakeLaddersStore.play(diceOne, diceTwo, context);
+              if (snakeLaddersStore.totalPlayerOne == 100 ||
+                  snakeLaddersStore.totalPlayerTwo == 100) {
+                Utils.dialogFinish(context);
+              } else {
+                var diceOne = 1 + random.nextInt(5);
+                var diceTwo = 1 + random.nextInt(5);
+                snakeLaddersStore.play(diceOne, diceTwo, context);
+              }
             },
             child: Text('Jogar'),
             style: ButtonStyle(

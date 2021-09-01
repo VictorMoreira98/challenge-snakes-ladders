@@ -139,6 +139,28 @@ mixin _$SnakesLadders on _SnakesLaddersBase, Store {
   }
 
   @override
+  dynamic restartPlayers() {
+    final _$actionInfo = _$_SnakesLaddersBaseActionController.startAction(
+        name: '_SnakesLaddersBase.restartPlayers');
+    try {
+      return super.restartPlayers();
+    } finally {
+      _$_SnakesLaddersBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic setPlayers(dynamic value) {
+    final _$actionInfo = _$_SnakesLaddersBaseActionController.startAction(
+        name: '_SnakesLaddersBase.setPlayers');
+    try {
+      return super.setPlayers(value);
+    } finally {
+      _$_SnakesLaddersBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 totalPlayerOne: ${totalPlayerOne},

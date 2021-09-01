@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:demoji/demoji.dart';
 
 class AvatarPlayer extends StatelessWidget {
-  const AvatarPlayer({ Key key, this.color, this.size }) : super(key: key);
-  final MaterialColor color;
+  const AvatarPlayer({Key key, this.player, this.size}) : super(key: key);
+  final int player;
   final double size;
 
   @override
@@ -12,8 +13,12 @@ class AvatarPlayer extends StatelessWidget {
       child: Container(
         height: 50,
         width: 50,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(100),
-        color: color.withOpacity(.6)),
+        child: player == 1
+            ? Text(
+                Demoji.running_woman,
+                style: TextStyle(fontSize: 30),
+              )
+            : Text(Demoji.running_man, style: TextStyle(fontSize: 30)),
       ),
     );
   }

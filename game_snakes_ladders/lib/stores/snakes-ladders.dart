@@ -1,13 +1,14 @@
-import 'package:flutter/material.dart';
+
 import 'package:game_snakes_ladders/consts/snakes_ladders.dart';
+import 'package:game_snakes_ladders/widgets/utils.dart';
 import 'package:mobx/mobx.dart';
-import 'package:spring/spring.dart';
-import 'dart:async';
 part 'snakes-ladders.g.dart';
 
 class SnakesLadders = _SnakesLaddersBase with _$SnakesLadders;
 
 abstract class _SnakesLaddersBase with Store {
+  Utils utils = new Utils();
+
   @observable
   int _currentPlayer = 1;
 
@@ -42,41 +43,39 @@ abstract class _SnakesLaddersBase with Store {
   play(diceOne, diceTwo, context) {
     _currentDiceOne = diceOne;
     _currentDiceTwo = diceTwo;
+
     if (_currentPlayer == 1) {
-      _totalPlayerOne = _totalPlayerOne + diceOne + diceTwo;
+      var total = _totalPlayerOne + diceOne + diceTwo;
+      if (total > 100) Utils.dialogRulesWin(context, _currentPlayer);
+      _totalPlayerOne = total > 100 ? _totalPlayerOne : total;
+
       var element = SnakesLaddersConst.snakesLadders
           .where((element) => element['position'] == _totalPlayerOne);
-      if (element.isNotEmpty) 
-        dialog(context, element);      
-            
+      if (element.isNotEmpty) utils.dialogRules(context, element, _currentPlayer);
     }
+
     if (_currentPlayer == 2) {
-      _totalPlayerTwo = _totalPlayerTwo + diceOne + diceTwo;
+      var total = _totalPlayerTwo + diceOne + diceTwo;
+      if (total > 100) Utils.dialogRulesWin(context, _currentPlayer);
+      _totalPlayerTwo = total > 100 ? _totalPlayerTwo : total;
       var element = SnakesLaddersConst.snakesLadders
           .where((element) => element['position'] == _totalPlayerTwo);
-      if (element.isNotEmpty)
-        dialog(context, element);
-
+      if (element.isNotEmpty) utils.dialogRules(context, element, _currentPlayer);
     }
-    _currentPlayer = _currentPlayer == 1 ? 2 : 1;
+
+    if (_totalPlayerTwo == 100 || _totalPlayerOne == 100)
+      Utils.dialogWin(context, _currentPlayer);
+    if (diceOne != diceTwo) _currentPlayer = _currentPlayer == 1 ? 2 : 1;
   }
 
-  dialog(context, element) {
-    return showDialog(
-        context: context,
-        builder: (ctx) {
-          return AlertDialog(
-            title: Text(element.first['title']),
-            content: Text('Jogador '+_currentPlayer.toString() + element.first['message']),
-            actions: [
-              TextButton(
-                  onPressed: () => {
-                        Navigator.of(context).pop(),
-                        _totalPlayerOne = element.first['positionFuture'],
-                      },
-                  child: Text("Ok"))
-            ],
-          );
-        });
+  @action
+  restartPlayers() {
+    _totalPlayerOne = 1;
+    _totalPlayerTwo = 1;
+  }
+
+  @action
+  setPlayers(value) {
+    _currentPlayer == 1 ? _totalPlayerOne = value : _totalPlayerTwo = value;
   }
 }
