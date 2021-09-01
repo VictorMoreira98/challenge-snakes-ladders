@@ -1,16 +1,17 @@
-# game_snakes_ladders
+# Jogo indiano "Cobras e Escadas"
 
-A new Flutter project.
+O jogo consta em que dois participantes tem o objetivo de chegar a casa número 100, durante o percurso caso ele chegue em uma casa em que está localizada a base da escada, ele pula para a casa em que está o topo da escada. Já caso ele chegue em uma casa que está localizada a cabeça da cobra, ele volta para a casa onde está o inicio da cobra. Caso o participante tire os dois dados nos valores iguais, ele ganha outra jogada. E no final, o participante só ganha se acertar exatamente o número de casas restantes.
 
-## Getting Started
+## Executando o projeto
+### :iphone: Mobile
+* Execute no diretorio do projeto `flutter pub get`
+* No VS Code abra `view > Command Palette > Flutter: Select Device`
+* Selecione o seu smartphone/emulador
+* Acesse `Run > Run Without Debugging`
+* Permita instalar o app em seu smartphone/emulador
 
-This project is a starting point for a Flutter application.
+## Imagens do jogo  
+<img src="./assets/prints_screens/img1.jpeg" width="230"><img src="./assets/prints_screens/img2.jpeg" width="230">
+<img src="./assets/prints_screens/img3.jpeg" width="230">
+<img src="./assets/prints_screens/img4.jpeg" width="230">
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
