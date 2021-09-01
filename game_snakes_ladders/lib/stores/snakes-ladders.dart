@@ -46,7 +46,7 @@ abstract class _SnakesLaddersBase with Store {
 
     if (_currentPlayer == 1) {
       var total = _totalPlayerOne + diceOne + diceTwo;
-      if (total > 100) Utils.dialogRulesWin(context, _currentPlayer);
+      if (total > 100) utils.dialogRulesWin(context, _currentPlayer, total);
       _totalPlayerOne = total > 100 ? _totalPlayerOne : total;
 
       var element = SnakesLaddersConst.snakesLadders
@@ -56,7 +56,7 @@ abstract class _SnakesLaddersBase with Store {
 
     if (_currentPlayer == 2) {
       var total = _totalPlayerTwo + diceOne + diceTwo;
-      if (total > 100) Utils.dialogRulesWin(context, _currentPlayer);
+      if (total > 100) utils.dialogRulesWin(context, _currentPlayer, total);
       _totalPlayerTwo = total > 100 ? _totalPlayerTwo : total;
       var element = SnakesLaddersConst.snakesLadders
           .where((element) => element['position'] == _totalPlayerTwo);

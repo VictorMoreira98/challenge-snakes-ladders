@@ -40,7 +40,8 @@ class Utils {
         });
   }
 
-  static dialogRulesWin(context, player) {
+dialogRulesWin(context, player, total) {
+  this.snakesLaddersStore = GetIt.instance<SnakesLadders>();
     return showDialog(
         context: context,
         builder: (ctx) {
@@ -52,7 +53,7 @@ class Utils {
             content: Text(
               'Jogador ' +
                   player.toString() +
-                  ' precisa tirar exatamente o número de casas restantes!',
+                  ' precisa tirar exatamente o número de casas restantes, você irá retornar o número de casas que sobraram!',
               style: TextStyle(color: Colors.black45),
             ),
             backgroundColor: Colors.orange[100],
@@ -61,6 +62,7 @@ class Utils {
               TextButton(
                   onPressed: () => {
                         Navigator.of(context).pop(),
+                        snakesLaddersStore.setPlayers(player, (100 -(total - 100)))
                       },
                   child: Text(
                     "Ok",
